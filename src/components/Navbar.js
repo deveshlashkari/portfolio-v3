@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import Logo from "./Logo";
 import { GithubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from "./Icons";
-import Links from "../config/links.json";
+import links from "../config/Links";
 
 const CustomLinks = ({ href, title, className = "" }) => {
   const router = useRouter();
@@ -40,7 +40,7 @@ const Navbar = () => {
           <motion.a
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            href={Links.twitter}
+            href={links.twitter}
             target="_blank"
             className="w-8 mx-3"
           >
@@ -49,7 +49,7 @@ const Navbar = () => {
           <motion.a
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            href={Links.linkedin}
+            href={links.linkedin}
             target="_blank"
             className="w-8 mx-3"
           >
@@ -58,7 +58,7 @@ const Navbar = () => {
           <motion.a
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            href={Links.github}
+            href={links.github}
             target="_blank"
             className="w-8 mx-3"
           >
@@ -67,7 +67,7 @@ const Navbar = () => {
           <motion.a
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            href={Links.instagram}
+            href={links.instagram}
             target="_blank"
             className="w-8 ml-3"
           >
