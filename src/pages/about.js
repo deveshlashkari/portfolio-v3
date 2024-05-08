@@ -7,6 +7,7 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const AnimatedNumbers = ({ value }) => {
   console.log(value);
@@ -44,15 +45,16 @@ const about = () => {
         <title>Devesh | About</title>
         <meta name="description" content="About Devesh Lashkari" />
       </Head>
-      <main className="flex w-full flex-col items-center justify-center">
+      <TransitionEffect />
+      <main className="flex w-full flex-col items-center justify-center dark:text-light ">
         <Layout className="pt-16 px-20">
           <AnimatedText
             text="Exploration ignites progress!"
-            className="!text-8xl mb-16"
+            className="!text-8xl mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           />
-          <div className="grid w-full grid-cols-8 gap-16">
-            <div className="col-span-6 flex flex-col items-start justify-start ">
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75">
+          <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
+            <div className="col-span-6 flex flex-col items-start justify-start xl:col-span-12">
+              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
                 About me!
               </h2>
               <p className="font-medium my-5">
@@ -102,34 +104,36 @@ const about = () => {
                 reiciendis?
               </p>
             </div>
-            <div className="col-span-2 flex flex-col items-end justify-between">
-              <div className="flex flex-col items-end justify-center">
+            <div className="col-span-2 flex flex-col items-end justify-between xl:flex-row xl:col-span-12 xl:items-center">
+              <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold ">
                   <AnimatedNumbers value={10} />+
                 </span>{" "}
-                <h2 className="text-xl font-medium capitalize text-dark/75">
+                <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">
                   satisfied clients
                 </h2>
               </div>
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold ">
                   <AnimatedNumbers value={20} />+
                 </span>{" "}
-                <h2 className="text-xl font-medium capitalize text-dark/75">
+                <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">
                   projects completed
                 </h2>
               </div>
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold ">
                   <AnimatedNumbers value={5} />+
                 </span>{" "}
-                <h2 className="text-xl font-medium capitalize text-dark/75">
+                <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">
                   years of experience
                 </h2>
               </div>
             </div>
           </div>
-          <Skills />
+          <div className="xs:hidden sm:hidden md:hidden">
+            <Skills />
+          </div>
           <Experience />
           <Education />
         </Layout>
