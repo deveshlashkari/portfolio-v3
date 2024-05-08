@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import Logo from "./Logo";
 import { GithubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from "./Icons";
-import links from "../config/Links";
+import { links } from "../config/Links";
 
 const CustomLinks = ({ href, title, className = "" }) => {
   const router = useRouter();
