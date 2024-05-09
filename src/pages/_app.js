@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Space_Grotesk } from "next/font/google";
 import Head from "next/head";
 
 import Navbar from "@/components/Navbar";
@@ -10,6 +10,10 @@ import { useRouter } from "next/router";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
 });
 
 export default function App({ Component, pageProps }) {

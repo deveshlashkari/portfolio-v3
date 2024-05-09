@@ -3,4 +3,5 @@ export const links = {
   github: "https://github.com/deveshlashkari",
   linkedin: "https://linkedin.com/in/deveshlashkari",
   instagram: "https://instagram.com/deveshlashkari",
+  youtube: "https://youtube.com/@LowCodeNinjaOS",
 };

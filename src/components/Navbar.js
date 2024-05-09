@@ -12,6 +12,7 @@ import {
   MusicIcon,
   SunIcon,
   TwitterIcon,
+  YouTubeIcon,
 } from "./Icons";
 import { links } from "../config/Links";
 import useThemeSwitcher from "./hooks/useThemeSwitcher";
@@ -132,9 +133,18 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               href={links.instagram}
               target="_blank"
-              className="w-8 ml-3"
+              className="w-8 mx-3"
             >
               <InstagramIcon />
+            </motion.a>
+            <motion.a
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              href={links.youtube}
+              target="_blank"
+              className="w-8 ml-3"
+            >
+              <YouTubeIcon />
             </motion.a>
 
             <button
@@ -221,6 +231,15 @@ const Navbar = () => {
                 className="w-8 ml-3 sm:ml-1"
               >
                 <InstagramIcon />
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                href={links.youtube}
+                target="_blank"
+                className="w-8 ml-3 sm:ml-1"
+              >
+                <YouTubeIcon />
               </motion.a>
 
               <button

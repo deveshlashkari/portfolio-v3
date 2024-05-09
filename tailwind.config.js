@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         mont: ["var(--font-mont)", ...fontFamily.sans],
+        space: ["var(--font-space)", ...fontFamily.sans],
       },
       colors: {
         dark: "#1b1b1b",
