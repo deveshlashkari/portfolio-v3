@@ -91,7 +91,7 @@ const RenderProjects = ({ type, title, summary, image, link, githublink }) => {
   );
 };
 
-const projects = () => {
+const Projects = () => {
   const [repos, setRepos] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -150,4 +150,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default Projects;
