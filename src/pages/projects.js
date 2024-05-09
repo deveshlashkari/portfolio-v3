@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import AnimatedText from "@/components/AnimatedText";
@@ -61,33 +61,26 @@ const RenderFeaturedProjects = ({
 const RenderProjects = ({ type, title, summary, image, link, githublink }) => {
   return (
     <>
-      <article className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light p-6 relative dark:bg-dark  dark:border-light xs:p-4">
+      <article className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light p-6 relative dark:bg-dark  dark:border-light xs:p-4 xs:w-[90%]">
         <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark  dark:bg-light md:-right-2 md:w-[101%] sm:h-[102%] xs:rounded-[1.5rem]" />
-        <Link
-          href={link}
-          target="_blank"
-          className="w-full cursor-pointer overflow-hidden rounded-lg "
-        >
-          <Image src={image} alt={title} className="w-full h-auto" />
-        </Link>
+
         <div className="w-full flex flex-col items-start justify-between mt-4 ">
           <span className="text-primary dark:text-primaryDark font-medium text-xl lg:text-lg md:text-base ">
             {type}
           </span>
-          <Link href={link} className="hover:underline underline-offset-2">
+          <Link
+            href={githublink}
+            target="_blank"
+            className="hover:underline underline-offset-2"
+          >
             <h2 className="my-2 w-full text-left text-3xl font-bold  lg:text-2xl  ">
               {title}
             </h2>
           </Link>
-
-          <div className="w-full mt-2 flex items-center justify-between ">
-            <Link
-              className=" text-lg font-semibold underline md:text-base "
-              target="_blank"
-              href={link}
-            >
-              Visit
-            </Link>
+          <p className="my-2 font-medium text-dark dark:text-light sm:text-sm  ">
+            {summary}
+          </p>
+          <div className="w-full mt-2 flex items-center ">
             <Link className="w-8 md:w-6" target="_blank" href={githublink}>
               <GithubIcon />{" "}
             </Link>
@@ -99,6 +92,28 @@ const RenderProjects = ({ type, title, summary, image, link, githublink }) => {
 };
 
 const projects = () => {
+  const [repos, setRepos] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/users/deveshlashkari/repos"
+        );
+        const data = await response.json();
+        const filteredRepos = data.filter(
+          (repo) => !repo.fork && !repo.private
+        );
+
+        setRepos(filteredRepos);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getData();
+
+    return () => {};
+  }, []);
+
   return (
     <>
       <Head>
@@ -112,37 +127,22 @@ const projects = () => {
             className=" mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
             text={"Vision fuels determination!"}
           />
-          <div className="grid grid-cols-12 gap-24 gap-y-32 xs:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            <div className="col-span-12 ">
-              <RenderFeaturedProjects
-                type="Web Development"
-                title="ABORDER"
-                summary="A platform for connecting people with similar interests and hobbies."
-                image={profilePicture}
-                link="https://aborder.vercel.app/"
-                githublink="https://aborder.vercel.app/"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12 ">
-              <RenderProjects
-                type="Web Development"
-                title="ABORDER"
-                summary="A platform for connecting people with similar interests and hobbies."
-                image={profilePicture}
-                link="https://aborder.vercel.app/"
-                githublink="https://aborder.vercel.app/"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <RenderProjects
-                type="Web Development"
-                title="ABORDER"
-                summary="A platform for connecting people with similar interests and hobbies."
-                image={profilePicture}
-                link="https://aborder.vercel.app/"
-                githublink="https://aborder.vercel.app/"
-              />
-            </div>
+          <div className="grid grid-cols-12 gap-12 gap-y-16 xs:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            {repos.length != 0 &&
+              repos.map((repo) => {
+                return (
+                  <>
+                    <div className="col-span-4 sm:col-span-12  ">
+                      <RenderProjects
+                        type={repo.language || "Web Development"}
+                        title={repo.name}
+                        summary={repo.description || "Hobby Project"}
+                        githublink={repo.html_url}
+                      />
+                    </div>
+                  </>
+                );
+              })}
           </div>
         </Layout>
       </main>
