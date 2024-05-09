@@ -9,6 +9,7 @@ import {
   InstagramIcon,
   LinkedInIcon,
   MoonIcon,
+  MusicIcon,
   SunIcon,
   TwitterIcon,
 } from "./Icons";
@@ -95,7 +96,7 @@ const Navbar = () => {
           <nav>
             <CustomLinks href="/" title="Home" className="mr-4" />
             <CustomLinks href="/about" title="About" className="mx-4" />
-            <CustomLinks href="/projects" title="Projects" className="mx-4" />
+            {/* <CustomLinks href="/projects" title="Projects" className="mx-4" /> */}
           </nav>
 
           <nav className="flex items-center justify-center flex-wrap">
@@ -176,12 +177,12 @@ const Navbar = () => {
                 className=""
                 toggle={handleToggle}
               />
-              <CustomLinksMobile
+              {/* <CustomLinksMobile
                 href="/projects"
                 title="Projects"
                 className=""
                 toggle={handleToggle}
-              />
+              /> */}
             </nav>
 
             <nav className="flex items-center justify-center flex-wrap mt-2  ">
