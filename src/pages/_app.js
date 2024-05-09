@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 
+import { Analytics } from "@vercel/analytics/react";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
@@ -33,6 +35,7 @@ export default function App({ Component, pageProps }) {
           <Component key={router.asPath} {...pageProps} />
         </AnimatePresence>
         <Footer />
+        <Analytics />
       </main>
     </>
   );
