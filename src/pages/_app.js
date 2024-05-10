@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 import { Analytics } from "@vercel/analytics/react";
 
-import OgImage from "@/public/OgImage.png";
+import OgImage from "../../public/OgImage.png";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
