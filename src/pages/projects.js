@@ -68,15 +68,17 @@ const RenderProjects = ({ type, title, summary, image, link, githublink }) => {
           <span className="text-primary dark:text-primaryDark font-medium text-xl lg:text-lg md:text-base ">
             {type}
           </span>
-          <Link
-            href={githublink}
-            target="_blank"
-            className="hover:underline underline-offset-2"
-          >
-            <h2 className="my-2 w-full text-left text-3xl font-bold  lg:text-2xl  ">
-              {title}
-            </h2>
-          </Link>
+          <div className="w-full  max-w-[85%] ">
+            <Link
+              href={githublink}
+              target="_blank"
+              className="hover:underline underline-offset-2   "
+            >
+              <h2 className="my-2 w-full  sm:max-w-full text-left text-3xl font-bold  lg:text-2xl truncate  ">
+                {title}
+              </h2>
+            </Link>
+          </div>
           <p className="my-2 font-medium text-dark dark:text-light sm:text-sm  ">
             {summary}
           </p>

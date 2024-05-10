@@ -187,15 +187,15 @@ const Navbar = () => {
                 className=""
                 toggle={handleToggle}
               />
-              {/* <CustomLinksMobile
+              <CustomLinksMobile
                 href="/projects"
                 title="Projects"
                 className=""
                 toggle={handleToggle}
-              /> */}
+              />
             </nav>
 
-            <nav className="flex items-center justify-center flex-wrap mt-2  ">
+            <nav className="flex items-center justify-center flex-wrap mt-2  xs:mt-4 sm:mt-4 ">
               <motion.a
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.9 }}
