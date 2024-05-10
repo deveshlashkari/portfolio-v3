@@ -9,8 +9,6 @@ import { useRouter } from "next/router";
 
 import { Analytics } from "@vercel/analytics/react";
 
-import OgImage from "../../public/OgImage.png";
-
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
@@ -35,7 +33,10 @@ export default function App({ Component, pageProps }) {
           property="og:description"
           content="Hello, Welcome to my portfolio website. Let's connect!!!"
         />
-        <meta property="og:image" content={OgImage} />
+        <meta
+          property="og:image"
+          content="https://www.deveshlashkari.dev/images/OgImage.png"
+        />
         <meta property="og:url" content="https://deveshlashkari.dev" />
         <meta property="og:site_name" content="Devesh Lashkari | Portfolio" />
       </Head>
