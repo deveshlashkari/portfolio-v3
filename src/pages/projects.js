@@ -99,7 +99,7 @@ const Projects = () => {
     const getData = async () => {
       try {
         const response = await fetch(
-          "https://api.github.com/users/deveshlashkari/repos"
+          "https://api.github.com/users/deveshlashkari/repos?sort=created"
         );
         const data = await response.json();
         const filteredRepos = data.filter(
