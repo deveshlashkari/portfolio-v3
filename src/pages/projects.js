@@ -79,7 +79,7 @@ const RenderProjects = ({ type, title, summary, image, link, githublink }) => {
               </h2>
             </Link>
           </div>
-          <p className="my-2 font-medium text-dark dark:text-light sm:text-sm  ">
+          <p className="my-2 font-medium text-dark dark:text-light sm:text-sm truncate  ">
             {summary}
           </p>
           <div className="w-full mt-2 flex items-center ">
